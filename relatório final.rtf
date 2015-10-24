@@ -1,0 +1,107 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1038\cocoasubrtf360
+{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;\f1\fnil\fcharset0 LucidaGrande;}
+{\colortbl;\red255\green255\blue255;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{hyphen\}}{\leveltext\leveltemplateid2\'01\uc0\u8259 ;}{\levelnumbers;}\fi-360\li1440\lin1440 }{\listname ;}\listid1}
+{\list\listtemplateid2\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid101\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{hyphen\}}{\leveltext\leveltemplateid102\'01\uc0\u8259 ;}{\levelnumbers;}\fi-360\li1440\lin1440 }{\listname ;}\listid2}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}}
+\paperw11900\paperh16840\margl1440\margr1440\vieww12000\viewh10200\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\ql\qnatural\pardirnatural
+
+\f0\fs28 \cf0 An\'e1lise da complexidade dos algoritmos\
+\
+C4.5\
+\
+Seja \ul n\ulnone  o n\'famero de inst\'e2ncias de treino e \ul k\ulnone  o n\'famero de atributos de cada inst\'e2ncia.\
+\
+Durante a fase de constru\'e7\'e3o da \'e1rvore, o algoritmo C4.5 executa os seguintes passos:\
+\
+\pard\tx220\tx720\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\li720\fi-720\ql\qnatural\pardirnatural
+\ls1\ilvl0\cf0 {\listtext	\'95	}Para cada atributo:\
+\pard\tx940\tx1440\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\li1440\fi-1440\ql\qnatural\pardirnatural
+\ls1\ilvl1\cf0 {\listtext	
+\f1 \uc0\u8259 
+\f0 	}Se for um atributo discreto, calcular o ganho de informa\'e7\'e3o (normalizado) usando esse atributo\
+{\listtext	
+\f1 \uc0\u8259 
+\f0 	}Se for um atributo cont\'ednuo, seleccionar um valor interm\'e9dio do atributo tal que o ganho de informa\'e7\'e3o seja m\'e1ximo ao dividir as inst\'e2ncias naquelas que t\'eam valores maiores e menores do que o seleccionado.\
+\pard\tx220\tx720\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\li720\fi-720\ql\qnatural\pardirnatural
+\ls1\ilvl0\cf0 {\listtext	\'95	}Dividir as inst\'e2ncias segundo o atributo e (possivelmente) valor interm\'e9dio seleccionado.\
+{\listtext	\'95	}Executar o algoritmo recursivamente para os novos sub-conjuntos.\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\ql\qnatural\pardirnatural
+\cf0 \
+Para o c\'e1lculo do ganho de informa\'e7\'e3o da divis\'e3o por um atributo discreto, \'e9 necess\'e1rio percorrer todas as inst\'e2ncias em considera\'e7\'e3o, para contar quantas delas pertencem a cada uma das classes definidas e a cada um dos valores do atributo, bem como para calcular a entropia de cada subconjunto de inst\'e2ncias e de todo o conjunto. Logo, a complexidade desta opera\'e7\'e3o \'e9 O(n).\
+Para o mesmo c\'e1lculo sobre um atributo cont\'ednuo, \'e9 necess\'e1rio percorrer as inst\'e2ncias, por ordem do valor desse atributo, de forma a determinar o ganho de informa\'e7\'e3o m\'e1ximo. O ganho de informa\'e7\'e3o para um ponto de divis\'e3o pode ser obtido em tempo O(1) a partir do ponto anterior (o ganho no ponto inicial \'e9 obtido em tempo O(n)), pelo que esta opera\'e7\'e3o demora tamb\'e9m tempo O(n).\
+\
+Logo, para seleccionar o atributo com o melhor ganho de informa\'e7\'e3o, \'e9 necess\'e1rio tempo O(kn).\
+\
+No passo recursivo, este processo \'e9 repetido uma vez por cada subconjunto criado; como os subconjuntos n\'e3o se sobrep\'f5em, cada inst\'e2ncia \'e9 processada uma vez, e o conjunto do n\'edvel seguinte de invoca\'e7\'f5es recursivas demora tamb\'e9m tempo O(kn).\
+No pior caso poss\'edvel, a \'e1rvore ter\'e1 profundidade m\'e1xima O(n); no melhor (e m\'e9dio), O(log n). Logo, a complexidade temporal m\'e9dia da constru\'e7\'e3o da \'e1rvore \'e9 O(kn * log n), e a m\'e1xima \'e9 O(kn^2).\
+\
+RLSA\
+\
+O RLSA, apenas na direc\'e7\'e3o horizontal e vertical, exige percorrer linearmente todas as linhas ou colunas da imagem, respectivamente, e manter a dist\'e2ncia ao \'faltimo pixel preto visto nessa linha/coluna (tempo O(1) em cada passo). No pior caso, todos os pixels t\'eam que ser percorridos mais uma vez para os preencher a preto; logo, o tempo total de execu\'e7\'e3o \'e9 O(a), em que a \'e9 a \'e1rea da imagem.\
+\
+Para executar o RLSA completo, \'e9 necess\'e1rio executar uma vez o algoritmo b\'e1sico na direc\'e7\'e3o horizontal e outra na vertical, e fazer um AND l\'f3gico dos resultados (um pixel s\'f3 \'e9 preto no resultado se for preto na posi\'e7\'e3o equivalente dos dois operandos). O AND l\'f3gico de dois pixels \'e9 uma opera\'e7\'e3o O(1), logo o tempo de execu\'e7\'e3o do AND das duas imagens interm\'e9dias \'e9 O(a).\
+\
+Logo, o tempo de execu\'e7\'e3o do RLSA completo \'e9 3O(a) = O(a).\
+\
+\
+Ambiente de desenvolvimento\
+\
+O programa foi desenvolvido em Python, usando o Jython 2.5.3 (o Jython \'e9 uma implementa\'e7\'e3o de Python que permite utilizar bibliotecas escritas em Java a partir do Python) e o Eclipse. Foram utilizados os sistemas operativos Windows e Mac OS X.\
+O \'fanico pacote de software adicional usado pelo programa \'e9 o Weka, j\'e1 mencionado anteriormente.\
+\
+\
+Conclus\'f5es\
+\
+Dados os resultados obtidos, parece-nos que as t\'e9cnicas e algoritmos que abord\'e1mos s\'e3o uma solu\'e7\'e3o promissora ao problema que motivou este projecto. No entanto, consideramos que o trabalho peca principalmente por ser demasiado lento. Esta lentid\'e3o n\'e3o deriva tanto da constru\'e7\'e3o da \'e1rvore de decis\'e3o do C4.5 como da implementa\'e7\'e3o do RLSA, que leva v\'e1rios segundos a processar imagens moderadamente grandes (cerca de 600 x 600 pixels, por exemplo). Isto poderia ser melhorado (em Python) usando APIs mais eficientes, mas mais complexas de utilizar, ou ent\'e3o rescrevendo todo o algoritmo em Java. Por raz\'f5es de expedi\'eancia de desenvolvimento, n\'e3o foi tentada a segunda possibilidade.\
+\
+\
+Manual de utiliza\'e7\'e3o\
+\
+A partir do direct\'f3rio-pai do direct\'f3rio "page_classifier" (onde se encontra o c\'f3digo do projecto), pode executar-se um dos seguintes comandos:\
+\
+\pard\tx220\tx720\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\li720\fi-720\ql\qnatural\pardirnatural
+\ls2\ilvl0\cf0 {\listtext	\'95	}Para classificar uma imagem segundo um 
+\i dataset
+\i0  j\'e1 constru\'eddo:\
+\pard\tx940\tx1440\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\li1440\fi-1440\ql\qnatural\pardirnatural
+\ls2\ilvl1\cf0 {\listtext	
+\f1 \uc0\u8259 
+\f0 	}jython -m page_classifier classify <dataset> <imagem>\
+\pard\tx220\tx720\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\li720\fi-720\ql\qnatural\pardirnatural
+\ls2\ilvl0\cf0 {\listtext	\'95	}Para avaliar o desempenho do C4.5 usando um 
+\i dataset
+\i0  para treino
+\i  
+\i0 e outro para teste:\
+\pard\tx940\tx1440\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\li1440\fi-1440\ql\qnatural\pardirnatural
+\ls2\ilvl1\cf0 {\listtext	
+\f1 \uc0\u8259 
+\f0 	}jython -m page_classifier evaluate <dataset-treino> <dataset-teste>\
+\pard\tx220\tx720\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\li720\fi-720\ql\qnatural\pardirnatural
+\ls2\ilvl0\cf0 {\listtext	\'95	}Para fazer a mesma avalia\'e7\'e3o, usando parte de um 
+\i dataset
+\i0  para treino e o restante para teste (
+\i frac\'e7\'e3o 
+\i0 \'e9 um n\'famero entre 0 e 1 que determina a propor\'e7\'e3o dos elementos do 
+\i dataset
+\i0  que s\'e3o usados para treino, por omiss\'e3o \'e9 0,5):\
+\pard\tx940\tx1440\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\li1440\fi-1440\ql\qnatural\pardirnatural
+\ls2\ilvl1\cf0 {\listtext	
+\f1 \uc0\u8259 
+\f0 	}jython -m page_classifier evaluate-self <dataset> [<frac\'e7\'e3o>]\
+\pard\tx220\tx720\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\li720\fi-720\ql\qnatural\pardirnatural
+\ls2\ilvl0\cf0 {\listtext	\'95	}Para gerar um novo 
+\i dataset
+\i0  a partir de um conjunto de imagens guardadas num direct\'f3rio:\
+\pard\tx940\tx1440\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\li1440\fi-1440\ql\qnatural\pardirnatural
+\ls2\ilvl1\cf0 {\listtext	
+\f1 \uc0\u8259 
+\f0 	}jython -m page_classifier generate <dataset> <direct\'f3rio>\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\ql\qnatural\pardirnatural
+\cf0 \
+Os 
+\i datasets 
+\i0 podem ser criados ou lidos em qualquer formato suportado pelo Weka, incluindo ARFF e C4.5. Igualmente, as imagens podem estar em qualquer formato suportado pela API de leitura de imagens do Java (formatos comuns, como BMP, PNG, GIF e JPEG s\'e3o suportados).\
+}

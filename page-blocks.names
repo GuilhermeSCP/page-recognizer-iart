@@ -1,0 +1,11 @@
+1,2,3,4,5.
+height:   continuous.         | Height of the block.
+lenght:   continuous.     | Length of the block. 
+area:     continuous.    | Area of the block (height * lenght);
+eccen:    continuous.  | Eccentricity of the block (lenght / height);
+p_black:  continuous.  | Percentage of black pixels within the block (blackpix / area);
+p_and:    continuous.        | Percentage of black pixels after the application of the Run Length Smoothing Algorithm (RLSA) (blackand / area);
+mean_tr:  continuous.      | Mean number of white-black transitions (blackpix / wb_trans);
+blackpix: continuous.    | Total number of black pixels in the original bitmap of the block.
+blackand: continuous.        | Total number of black pixels in the bitmap of the block after the RLSA.
+wb_trans: continuous.          | Number of white-black transitions in the original bitmap of the block.

@@ -1,0 +1,21 @@
+@relation page-blocks
+
+@attribute height numeric
+@attribute lenght numeric
+@attribute area numeric
+@attribute eccen numeric
+@attribute p_black numeric
+@attribute p_and numeric
+@attribute mean_tr numeric
+@attribute blackpix numeric
+@attribute blackand numeric
+@attribute wb_trans numeric
+@attribute Class {1,2,3,4,5}
+
+@data
+116,540,62640,4.655172,0.090086,0.382344,1.389217,5643,23950,4061,1
+221,372,82212,1.683258,0.028098,0.197197,2.667436,2310,16212,865,5
+217,230,49910,1.059908,0.864496,0.91134,45.038622,43147,45485,957,3
+160,567,90720,3.54375,0.084259,0.342725,1.393365,7644,31092,5485,1
+33,511,16863,15.484848,0.177074,0.216687,24.47541,2986,3654,121,2
+90,91,8190,1.011111,0.422466,0.523199,30.350877,3460,4285,113,3
